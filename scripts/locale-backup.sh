@@ -9,6 +9,6 @@ BACKUPS=`expr $BACKUPS - 1`
 done
 DATE=`date +%Y%m%d%H%M%S`
 rm -f $HOME/$BACKUPFOLDER/.locale-${DATE}.tgz_INPROGRESS
-tar -cvzpf $HOME/$BACKUPFOLDER/.locale-${DATE}.tgz_INPROGRESS ~/webapps/$DJANGO_APP_NAME/project/locale
+tar -cvzpf $HOME/$BACKUPFOLDER/.locale-${DATE}.tgz_INPROGRESS ~/webapps/$DJANGO_APP_NAME/myproject/locale
 mv -f $HOME/$BACKUPFOLDER/.locale-${DATE}.tgz_INPROGRESS $HOME/$BACKUPFOLDER/locale-${DATE}.tgz
 exit 0
