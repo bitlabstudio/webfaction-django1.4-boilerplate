@@ -67,8 +67,8 @@ INSTALLED_APPS = DEFAULT_INSTALLED_APPS + [
 # ======================
 # Static files settings
 # ======================
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, '..', '..', 'MEDIA_APP_NAME')
-STATIC_ROOT = os.path.join(PROJECT_ROOT, '..', '..', 'STATIC_APP_NAME')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, '../../..',  'MEDIA_APP_NAME')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, '../../..', 'STATIC_APP_NAME')
 
 
 # ===========

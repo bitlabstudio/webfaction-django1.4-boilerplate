@@ -115,10 +115,10 @@ def local_create_new_repo():
     with lcd(fab_settings.PROJECT_ROOT):
         local('rm -rf .git')
         local('rm -f .gitmodules')
-        local('rm -rf website/webapps/django/project/submodules/Skeleton')
+        local('rm -rf website/webapps/django/myproject/submodules/Skeleton')
         local('git init')
         local('git submodule add git://github.com/dhgamache/Skeleton.git'
-                ' website/webapps/django/project/submodules/Skeleton')
+                ' website/webapps/django/myproject/submodules/Skeleton')
 
 
 def local_init_django_project():
