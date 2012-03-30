@@ -3,7 +3,7 @@
 # General settings
 # =================
 SITE_ID = 1
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = 'myproject.urls'
 
 
 # =======================
