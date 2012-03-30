@@ -5,7 +5,7 @@ from coverage.misc import CoverageException
 from fabric.api import lcd, local, settings
 from fabric.colors import _wrap_with
 
-from settings import (
+from myproject.settings import (
     DATABASES,
     MEDIA_ROOT,
     PROJECT_ROOT,

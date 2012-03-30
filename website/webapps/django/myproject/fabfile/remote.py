@@ -7,7 +7,7 @@ from fabric.api import (
 )
 
 import fab_settings
-from settings import DATABASES
+from myproject.settings import DATABASES
 
 
 env.hosts = fab_settings.ENV_HOSTS
