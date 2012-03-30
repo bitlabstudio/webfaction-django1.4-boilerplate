@@ -9,15 +9,6 @@ django-rosetta
 -e git://github.com/bitmazk/django-registration-email.git#egg=registration_email
 
 
-# ============================
-# django-cms related packages
-# ============================
-django-cms==2.2
-django-filer
-cmsplugin-filer
-cmsplugin-blog
-
-
 # =========================
 # Important other packages
 # =========================

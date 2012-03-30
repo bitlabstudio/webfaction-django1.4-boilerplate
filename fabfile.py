@@ -136,7 +136,7 @@ def local_init_django_project():
         local('python manage.py syncdb --all --noinput')
         local('python manage.py migrate --fake')
         local('python manage.py loaddata bootstrap_auth.json')
-        local("sed -i -r -e 's/XXXX/{0}/g' urls.py".format(
+        local("sed -i -r -e 's/XXXX/{0}/g' myproject/urls.py".format(
             fab_settings.ADMIN_URL))
 
 def local_initial_commit():
