@@ -102,7 +102,7 @@ def local_link_repo_with_remote_repo():
 
 def local_create_fab_settings():
     fabfile_dir = os.path.join(fab_settings.PROJECT_ROOT, 'website',
-        'webapps', 'django', 'project', 'fabfile')
+        'webapps', 'django', 'myproject', 'fabfile')
     with lcd(fabfile_dir):
         local('cp fab_settings.py.sample fab_settings.py')
         local("sed -i -r -e 's/INSERT_PROJECT_NAME/{0}/g'"
@@ -123,15 +123,16 @@ def local_create_new_repo():
 
 def local_init_django_project():
     with lcd(fab_settings.DJANGO_PROJECT_ROOT):
-        local('cp settings/local/local_settings.py.sample'
-                ' settings/local/local_settings.py')
+        local('cp myproject/settings/local/local_settings.py.sample'
+                ' myproject/settings/local/local_settings.py')
         local("sed -i -r -e 's/MEDIA_APP_NAME/media/g'"
-              " settings/local/local_settings.py")
+              " myproject/settings/local/local_settings.py")
         local("sed -i -r -e 's/STATIC_APP_NAME/static/g'"
-              " settings/local/local_settings.py")
+              " myproject/settings/local/local_settings.py")
         local('cp fabfile/fab_settings.py.sample'
-                ' fabfile/fab_settings.py')
-        local('cp settings/local/gorun_settings.py.sample gorun_settings.py')
+              ' fabfile/fab_settings.py')
+        local('cp myproject/settings/local/gorun_settings.py.sample'
+              ' gorun_settings.py')
         local('python manage.py syncdb --all --noinput')
         local('python manage.py migrate --fake')
         local('python manage.py loaddata bootstrap_auth.json')
@@ -249,7 +250,7 @@ def run_install_pgpass():
 
 def run_install_requirements():
     run('workon {0} && pip install -r $HOME/src/{1}/website/webapps/django/'
-        'project/requirements.txt --upgrade'.format(
+        'myproject/requirements.txt --upgrade'.format(
             fab_settings.VENV_NAME, PROJECT_NAME))
 
 
@@ -305,13 +306,15 @@ def run_install_virtualenv():
 
 
 def run_loaddata_auth():
-    with cd('$HOME/webapps/{0}/project/'.format(fab_settings.DJANGO_APP_NAME)):
+    with cd('$HOME/webapps/{0}/myproject/'.format(
+            fab_settings.DJANGO_APP_NAME)):
+
         run('workon {0} && ./manage.py loaddata bootstrap_auth.json'.format(
             fab_settings.VENV_NAME))
 
 
 def run_prepare_local_settings():
-    with cd('$HOME/webapps/{0}/project/settings/local'.format(
+    with cd('$HOME/webapps/{0}/myproject/myproject/settings/local'.format(
         fab_settings.DJANGO_APP_NAME)):
         run('cp local_settings.py.sample local_settings.py')
         sed('local_settings.py', 'backends.sqlite3',
@@ -349,11 +352,12 @@ def run_prepare_wsgi():
         fab_settings.DJANGO_APP_NAME)):
         run('rm -rf django')
         run('rm -rf Django*')
-    with cd('$HOME/webapps/{0}'.format(fab_settings.DJANGO_APP_NAME)):
-        run('rm -rf myproject')
-        run('cp $HOME/src/{0}/scripts/myproject.wsgi .'.format(
+    with cd('$HOME/webapps/{0}/myproject/myproject'.format(
+        fab_settings.DJANGO_APP_NAME)):
+
+        run('cp $HOME/src/{0}/scripts/wsgi.py .'.format(
             PROJECT_NAME))
-        sed('myproject.wsgi', 'ENV_USER', fab_settings.ENV_USER)
-        sed('myproject.wsgi', 'VENV_NAME', fab_settings.VENV_NAME)
-        sed('myproject.wsgi', 'DJANGO_APP_NAME', fab_settings.DJANGO_APP_NAME)
+        sed('wsgi.py', 'ENV_USER', fab_settings.ENV_USER)
+        sed('wsgi.py', 'VENV_NAME', fab_settings.VENV_NAME)
+        sed('wsgi.py', 'DJANGO_APP_NAME', fab_settings.DJANGO_APP_NAME)
         run('rm -f *.bak')
