@@ -62,7 +62,7 @@ def first_deployment():
     run_install_scripts()
     run_install_pgpass()
     run_install_crontab()
-    run_prepare_wsgi()
+    run_delete_django()
     run_install_requirements()
     run_deploy_website(with_manage_py=False)
     run_prepare_local_settings()
@@ -123,6 +123,7 @@ def local_create_new_repo():
 
 def local_init_django_project():
     with lcd(fab_settings.DJANGO_PROJECT_ROOT):
+        # prepare local_settings.py
         local('cp myproject/settings/local/local_settings.py.sample'
                 ' myproject/settings/local/local_settings.py')
         local("sed -i -r -e 's/MEDIA_APP_NAME/media/g'"
@@ -131,13 +132,27 @@ def local_init_django_project():
               " myproject/settings/local/local_settings.py")
         local('cp fabfile/fab_settings.py.sample'
               ' fabfile/fab_settings.py')
+
+        # prepare gorun_settings.py
         local('cp myproject/settings/local/gorun_settings.py.sample'
               ' gorun_settings.py')
+
+        # prepare wsgi.py
+        local("sed -i -r -e 's/ENV_USER/{0}/g'"
+              " myproject/wsgi.py".format(fab_settings.ENV_USER))
+        local("sed -i -r -e 's/VENV_NAME/{0}/g'"
+              " myproject/wsgi.py".format(fab_settings.VENV_NAME))
+        local("sed -i -r -e 's/DJANGO_APP_NAME/{0}/g'"
+              " myproject/wsgi.py".format(fab_settings.DJANGO_APP_NAME))
+
+        # prepare urls.py
+        local("sed -i -r -e 's/XXXX/{0}/g' myproject/urls.py".format(
+            fab_settings.ADMIN_URL))
+
+        # initialize local Django project
         local('python manage.py syncdb --all --noinput')
         local('python manage.py migrate --fake')
         local('python manage.py loaddata bootstrap_auth.json')
-        local("sed -i -r -e 's/XXXX/{0}/g' myproject/urls.py".format(
-            fab_settings.ADMIN_URL))
 
 def local_initial_commit():
     with lcd(fab_settings.PROJECT_ROOT):
@@ -347,17 +362,8 @@ def run_prepare_local_settings():
         run('rm -f *.bak')
 
 
-def run_prepare_wsgi():
+def run_delete_django():
     with cd('$HOME/webapps/{0}/lib/python2.7/'.format(
         fab_settings.DJANGO_APP_NAME)):
         run('rm -rf django')
         run('rm -rf Django*')
-    with cd('$HOME/webapps/{0}/myproject/myproject'.format(
-        fab_settings.DJANGO_APP_NAME)):
-
-        run('cp $HOME/src/{0}/scripts/wsgi.py .'.format(
-            PROJECT_NAME))
-        sed('wsgi.py', 'ENV_USER', fab_settings.ENV_USER)
-        sed('wsgi.py', 'VENV_NAME', fab_settings.VENV_NAME)
-        sed('wsgi.py', 'DJANGO_APP_NAME', fab_settings.DJANGO_APP_NAME)
-        run('rm -f *.bak')
