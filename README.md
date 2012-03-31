@@ -2,9 +2,9 @@
 
 ## Use it, if you know what you are doing
 
-This boilerplate has been tested with a fresh Webfaction server on March 31
-2012.  It worked without any issues. However, if you use it and ``fab
-install_everything`` crashes you will have read the fabric error message
+This boilerplate has been tested with a fresh Webfaction server with Django 1.4
+on March 31 2012.  It worked without any issues. However, if you use it and
+``fab install_everything`` crashes you will have read the fabric error message
 carefully, think hard about what might have gone wrong, probably fix the
 fabfile (and open an issue here) and try again.  The fab task is setup in such
 a way that it deletes previous failed attempts on the server so that it can be
@@ -213,11 +213,8 @@ code snippet.
 * Document what gets changed and how to revert in case of failure
 * fab rebuild does not work because there is no test_media
 * Why is there a ``fabfile_settings.py-r`` and ``urls.py-r`` after install everything?
-* Add ``pg_backup.sh`` script (test this)
-* News text is not displayed
 * Add ``delete_project`` task
 * Only add cronjobs if not there already
 * Make sure django forwards to www
-* Bug: Stuff gets appended to .bashrc even if it is already there
 * Autogenerate secret key
 * Use ssh for git authentication
