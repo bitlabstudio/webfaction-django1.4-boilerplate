@@ -136,6 +136,7 @@ def rebuild():
     """
     rebuild_db()
     rebuild_media()
+    local('./manage.py collectstatic --noinput')
 
 
 def rebuild_db():
@@ -155,10 +156,10 @@ def rebuild_db():
 
 def rebuild_media():
     """Copies media fixtures into your media_root."""
-    files_to_delete = os.path.join(MEDIA_ROOT, '*')
-    local('rm -rf %s' % files_to_delete)
+    local('rm -rf %s' % MEDIA_ROOT)
     media_fixtures_path = os.path.join(PROJECT_ROOT,
-            'test_media/fixtures/media/*')
+            'test_media/fixtures/media/')
+    local('mkdir -p %s' % media_fixtures_path)
     local('cp -rf %s %s' % (media_fixtures_path, MEDIA_ROOT))
 
 
