@@ -95,7 +95,8 @@ def local_link_repo_with_remote_repo():
         with settings(warn_only=True):
             local('git remote rm origin')
         local('git remote add origin'
-                ' https://{0}@git.{0}.webfactional.com/{1}'.format(
+              ' {0}@{0}.webfactional.com:'
+              ' /home/{0}/webapps/git/repos/{1}'.format(
                     fab_settings.ENV_USER, fab_settings.GIT_REPO_NAME))
         local('git push -u origin master')
 

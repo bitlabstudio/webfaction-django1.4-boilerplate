@@ -108,15 +108,20 @@ be inserted into your server's ``local_settings.py``.
 
     cp fabric_settings.py.sample fabric_settings.py
 
-You might want to create a ``.ssh`` directory on your Webfaction server with 
-permissions setup properly. Once you have done that, copy your public key, ssh 
-into your Webfaction server and append your key to ``.ssh/authorized_keys``. If
-you have already done sone, you can skip this step. It will setup the ``.ssh``
-folder on your server according to the Webfaction user guide on
+You need to create a ``.ssh`` directory on your Webfaction server with
+permissions setup properly. Once you have done that, copy your public rsa key
+into your clipboard, ssh into your Webfaction server and append your key to
+``.ssh/authorized_keys``. If you have already done sone, you can skip this
+step. It will setup the ``.ssh`` folder on your server according to the
+Webfaction user guide on
 [accessing your data using SSH keys](https://docs.webfaction.com/user-guide/access.html#using-ssh-keys):
 
     fab run_create_ssh_dir
-    
+
+You can check if everything worked by exiting your ssh session and creating a
+new one immediately after. This time you should not be asked for a password any
+more.
+
 Since you are on the server now anyways, you might consider to install our
 [Webfaction dotfiles](https://github.com/bitmazk/webfaction-dotfiles).
 
@@ -209,7 +214,7 @@ code snippet.
 
 
 ## TODO
-* let users upload ssh key first, then clone repo using ssh
+* it seems as if the script deletes existing .pgpass file on the server?
 * Document what gets changed and how to revert in case of failure
 * fab rebuild does not work because there is no test_media
 * Why is there a ``fabfile_settings.py-r`` and ``urls.py-r`` after install everything?
