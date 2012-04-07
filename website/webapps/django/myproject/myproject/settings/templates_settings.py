@@ -20,7 +20,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.eggs.Loader',
 )
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'templates'),
+    os.path.join(PROJECT_ROOT, 'myproject/templates/'),
 )
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
