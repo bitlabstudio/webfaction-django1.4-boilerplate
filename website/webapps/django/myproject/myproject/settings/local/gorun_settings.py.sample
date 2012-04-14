@@ -1,5 +1,5 @@
 DIRECTORIES = (
-    ('.', './manage.py test --failfast --settings=settings.test_settings'
+    ('.', './manage.py test --failfast --settings=myproject.settings.test_settings'
         #' appname'
         '',
     ),
