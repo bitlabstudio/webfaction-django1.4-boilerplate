@@ -39,10 +39,10 @@ DATABASES = {
 # ===============
 # Email settings
 # ===============
-FROM_EMAIL = "info@example.com"
+FROM_EMAIL = "projectname <info@example.com>"
 DEFAULT_FROM_EMAIL = FROM_EMAIL
 SERVER_EMAIL = FROM_EMAIL
-EMAIL_SUBJECT_PREFIX = '[yourproject] '
+EMAIL_SUBJECT_PREFIX = '[projectname] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST = 'smtp.webfaction.com'
@@ -50,8 +50,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_HOST_PASSWORD = ""
 #EMAIL_USE_TLS = True
 #EMAIL_PORT = 25
+
 ADMINS = (
-    ('yourname', 'info@example.com'),
+    ('yourname', 'yourname@gmail.com'),
 )
 MANAGERS = ADMINS
 
