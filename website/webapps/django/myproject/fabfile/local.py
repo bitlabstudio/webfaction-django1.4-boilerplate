@@ -18,6 +18,41 @@ GREEN_BG = _wrap_with('42')
 RED_BG = _wrap_with('41')
 
 
+def _get_test_apps(all='1'):
+    """Returns a list of apps that should be tested.
+
+    :param all: If '1', the slow ``integration_tests`` app will be included.
+
+    """
+    apps = TEST_APPS
+    if all == '1':
+        apps.append('integration_tests')
+    return apps
+
+
+def _get_test_command(apps=None, options=None, all='1'):
+    """Returns the command that runs all our tests.
+
+    :param apps: A comma separated list of apps that should be tested. If
+      ``None`` we will test all apps.
+    :param options: Extra options that should be passed to the test command.
+    :param all: If '1' we will also run the slow ``integration_tests`` app.
+
+    """
+    if apps is None:
+        apps = ' '.join(_get_test_apps(all=all))
+    else:
+        apps = apps.split(',')
+
+    command = (
+        './manage.py test -v 2 --traceback --failfast'
+        ' --settings=myproject.settings.test_settings %s' % ' '.join(apps)
+    )
+    if options:
+        command += ' {0}'.format(options)
+    return command
+
+
 def check():
     """Checks if the current state can be pushed."""
     flake8()
@@ -25,7 +60,17 @@ def check():
     coverage(0)
 
 
-def coverage(html=1):
+def coverage(html='1'):
+    """Runs coverage with html output or returns percentage of coverage."""
+    apps = _get_test_apps()
+    command = _get_test_command(apps=','.join(apps))
+    local('coverage run --source=%s %s' % (','.join(apps), command))
+    if html == '1':
+        local('coverage html')
+        local('xdg-open htmlcov/index.html')
+
+
+def _coverage(html=1):
     """Runs coverage with html output or returns percentage of coverage::
 
         fab coverage:1      # will create html output (default)
@@ -33,8 +78,8 @@ def coverage(html=1):
 
     """
     not_html = not int(html)
-    settings_file = (not_html and 'settings.coverage_nohtml_settings'
-                     or 'settings.coverage_settings')
+    settings_file = (not_html and 'myproject.settings.coverage_nohtml_settings'
+                     or 'myprojcet.settings.coverage_settings')
     try:
         results = local('./manage.py test_coverage --settings={0} {1}'.format(
              settings_file, ' '.join(TEST_APPS)), capture=not_html)
@@ -68,7 +113,7 @@ def coverage(html=1):
 
 def delete_db():
     """Deletes all data in the database."""
-    local('python2.7 ./manage.py flush --noinput')
+    local(' ./manage.py reset_db --router=default --noinput')
 
 
 def dumpdata():
@@ -79,6 +124,7 @@ def dumpdata():
 
     """
     local('python2.7 ./manage.py dumpdata --indent 4 --natural auth --exclude auth.permission > _global/fixtures/bootstrap_auth.json')  # NOQA
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural registration > _global/fixtures/bootstrap_registration.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sites > _global/fixtures/bootstrap_sites.json')  # NOQA
     #local('python2.7 ./manage.py dumpdata --indent 4 --natural cms.placeholder > _global/fixtures/bootstrap_cms.json') # NOQA
     #local('python2.7 ./manage.py dumpdata --indent 4 --natural cms --exclude cms.placeholder > _global/fixtures/bootstrap_cms2.json') # NOQA
@@ -145,13 +191,15 @@ def rebuild_db():
     local('python2.7 manage.py syncdb --all --noinput')
     local('python2.7 manage.py migrate --fake')
     local('python2.7 manage.py loaddata bootstrap_auth.json')
+    local('python2.7 manage.py loaddata bootstrap_registration.json')
     local('python2.7 manage.py loaddata bootstrap_sites.json')
+    #local('python2.7 manage.py loaddata bootstrap.json')
     #local('python2.7 manage.py loaddata bootstrap_cms.json')
     #local('python2.7 manage.py loaddata bootstrap_cms2.json')
     #local('python2.7 manage.py loaddata bootstrap_cms_plugins_text.json')
     #local('python2.7 manage.py loaddata bootstrap_cmsplugin_blog.json')
     #local('python2.7 manage.py loaddata bootstrap_tagging.json')
-    local('python2.7 manage.py loaddata bootstrap.json')
+    #local('python2.7 manage.py loaddata bootstrap.json')
 
 
 def rebuild_media():
@@ -176,20 +224,18 @@ def replace_media():
             fab_settings.PROJECT_NAME))
 
 
-def test(apps=' '.join(TEST_APPS), options=None):
+def test(apps=','.join(TEST_APPS), options=None, all='1'):
     """Runs manage.py tests::
 
         $ fab test                          # will run all unit tests
         $ fab test:app1                     # will run tests only for app1
 
     """
-    command = ('./manage.py test -v 2 --traceback --failfast'
-               ' --settings=settings.test_settings')
-    if options:
-        command += ' {0}'.format(options)
-
+    if all == '1':
+        apps += ',integration_tests'
+    command = _get_test_command(apps=apps, options=options, all=all)
     with settings(warn_only=True):
-        result = local('%s %s' % (command, apps), capture=False)
+        result = local(command, capture=False)
     if result.failed:
         print RED_BG('Some tests failed')
     else:
