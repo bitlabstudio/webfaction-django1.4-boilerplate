@@ -1,4 +1,7 @@
-import os, sys, site
+# flake8: noqa
+import os
+import site
+import sys
 
 
 site.addsitedir('/home/ENV_USER/Envs/VENV_NAME/lib/python2.7/site-packages')
