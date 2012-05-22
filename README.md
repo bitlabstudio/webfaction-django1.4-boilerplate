@@ -98,7 +98,7 @@ testing, you should uncomment a few lines in the first ``requirements.txt``:
 
     cd src
     pip install -r requirements.txt --upgrade
-    pip install -r website/webapps/django/project/requirements.txt --upgrade
+    pip install -r website/webapps/django/myproject/requirements.txt --upgrade
 
 Next you need to copy ``fabric_settings.py.sample`` and modify it for your needs.
 Basically you just need to modify your webfaction username and your desired
