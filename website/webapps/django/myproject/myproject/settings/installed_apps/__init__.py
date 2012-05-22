@@ -14,6 +14,7 @@ INTERNAL_APPS = [
 ]
 
 EXTERNAL_APPS = [
+    'mailer',
     'contact_form',
     'brutebuster_signals',
     'honeypot_signals',
