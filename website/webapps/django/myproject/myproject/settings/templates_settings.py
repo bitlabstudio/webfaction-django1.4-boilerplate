@@ -5,6 +5,7 @@ from myproject.settings.base_settings import DEBUG, PROJECT_ROOT
 
 
 TEMPLATE_DEBUG = DEBUG
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
@@ -12,16 +13,20 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
 )
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     'django.template.loaders.eggs.Loader',
 )
+
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'myproject/templates/'),
 )
+
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',

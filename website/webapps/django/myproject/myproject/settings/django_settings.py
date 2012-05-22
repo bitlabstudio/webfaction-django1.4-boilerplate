@@ -18,7 +18,8 @@ SEND_BROKEN_LINK_EMAILS = True
 gettext = lambda s: s
 
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-TIME_ZONE = 'Europe/Berlin'
+TIME_ZONE = 'UTC'
+USE_TZ = True
 
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en'

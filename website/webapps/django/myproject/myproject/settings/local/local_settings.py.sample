@@ -36,25 +36,49 @@ DATABASES = {
 }
 
 
-# ===============
-# Email settings
-# ===============
-FROM_EMAIL = "projectname <info@example.com>"
+# ======================
+# General Email Settings
+# ======================
+ADMINS = (
+    ('Yourname', 'yourname@gmail.com'),
+)
+MANAGERS = ADMINS
+EMAIL_BACKEND = 'mailer.backend.DbBackend'
+
+
+# ===============================
+# Loca Development Email Settings
+# ===============================
+MAILER_EMAIL_BACKEND = 'myproject.test_email_backend.EmailBackend'
+TEST_EMAIL_BACKEND_RECEPIENTS = ADMINS
+
+FROM_EMAIL = ADMINS[0][1]
 DEFAULT_FROM_EMAIL = FROM_EMAIL
 SERVER_EMAIL = FROM_EMAIL
-EMAIL_SUBJECT_PREFIX = '[projectname] '
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_SUBJECT_PREFIX = '[dev projectname] '
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = FROM_EMAIL
+EMAIL_HOST_PASSWORD = "yourgmailpw"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+
+
+# ==========================
+# Webfaction Server Settings
+# ==========================
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+#FROM_EMAIL = 'info@yourproject.com'
+#DEFAULT_FROM_EMAIL = FROM_EMAIL
+#SERVER_EMAIL = FROM_EMAIL
+#EMAIL_SUBJECT_PREFIX = '[projectname] '
+
 #EMAIL_HOST = 'smtp.webfaction.com'
 #EMAIL_HOST_USER = ""
 #EMAIL_HOST_PASSWORD = ""
 #EMAIL_USE_TLS = True
 #EMAIL_PORT = 25
-
-ADMINS = (
-    ('yourname', 'yourname@gmail.com'),
-)
-MANAGERS = ADMINS
 
 
 # ==========================
