@@ -357,7 +357,7 @@ def run_prepare_local_settings():
         sed('local_settings.py', '##EMAIL_SUBJECT_PREFIX', 'EMAIL_SUBJECT_PREFIX')  # NOQA
 
         sed('local_settings.py', 'EMAIL_HOST', '#EMAIL_HOST')
-        sed('local_settings.py', '##EMAIL_HOST', '#EMAIL_HOST')
+        sed('local_settings.py', '##EMAIL_HOST', 'EMAIL_HOST')
 
         sed('local_settings.py', 'EMAIL_HOST_USER = FROM_EMAIL', '#EMAIL_HOST_USER = FROM_EMAIL')  # NOQA
         sed('local_settings.py', '#EMAIL_HOST_USER = ""',

@@ -64,8 +64,6 @@ EMAIL_PORT = 587
 # ==========================
 # Webfaction Server Settings
 # ==========================
-##EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
 #FROM_EMAIL = "info@example.com"
 #EMAIL_SUBJECT_PREFIX = '[projectname] '
 
