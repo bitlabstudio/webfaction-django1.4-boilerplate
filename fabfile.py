@@ -350,13 +350,13 @@ def run_prepare_local_settings():
         sed('local_settings.py', 'MAILER_EMAIL_BACKEND', '#MAILER_EMAIL_BACKEND')  # NOQA
         sed('local_settings.py', 'TEST_EMAIL_BACKEND_RECEPIENTS', '#TEST_EMAIL_BACKEND_RECEPIENTS')  # NOQA
 
-        sed('local_settings.py', 'FROM_EMAIL', '#FROM_EMAIL')
+        sed('local_settings.py', 'FROM_EMAIL =', '#FROM_EMAIL =')
         sed('local_settings.py', '##FROM_EMAIL', 'FROM_EMAIL')
 
         sed('local_settings.py', 'EMAIL_SUBJECT_PREFIX', '#EMAIL_SUBJECT_PREFIX')  # NOQA
         sed('local_settings.py', '##EMAIL_SUBJECT_PREFIX', 'EMAIL_SUBJECT_PREFIX')  # NOQA
 
-        sed('local_settings.py', 'EMAIL_HOST', '#EMAIL_HOST')
+        sed('local_settings.py', 'EMAIL_HOST =', '#EMAIL_HOST =')
         sed('local_settings.py', '##EMAIL_HOST', 'EMAIL_HOST')
 
         sed('local_settings.py', 'EMAIL_HOST_USER = FROM_EMAIL', '#EMAIL_HOST_USER = FROM_EMAIL')  # NOQA

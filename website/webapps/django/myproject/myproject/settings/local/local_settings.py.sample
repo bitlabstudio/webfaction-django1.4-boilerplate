@@ -53,7 +53,7 @@ MAILER_EMAIL_BACKEND = 'myproject.test_email_backend.EmailBackend'
 TEST_EMAIL_BACKEND_RECEPIENTS = ADMINS
 
 FROM_EMAIL = ADMINS[0][1]
-EMAIL_SUBJECT_PREFIX = '[dev projectname] '
+EMAIL_SUBJECT_PREFIX = '[dev yourproject] '
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = FROM_EMAIL
@@ -65,7 +65,7 @@ EMAIL_PORT = 587
 # Webfaction Server Settings
 # ==========================
 #FROM_EMAIL = "info@example.com"
-#EMAIL_SUBJECT_PREFIX = '[projectname] '
+#EMAIL_SUBJECT_PREFIX = '[yourproject] '
 
 #EMAIL_HOST = 'smtp.webfaction.com'
 #EMAIL_HOST_USER = ""
