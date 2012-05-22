@@ -53,33 +53,34 @@ MAILER_EMAIL_BACKEND = 'myproject.test_email_backend.EmailBackend'
 TEST_EMAIL_BACKEND_RECEPIENTS = ADMINS
 
 FROM_EMAIL = ADMINS[0][1]
-DEFAULT_FROM_EMAIL = FROM_EMAIL
-SERVER_EMAIL = FROM_EMAIL
 EMAIL_SUBJECT_PREFIX = '[dev projectname] '
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = FROM_EMAIL
 EMAIL_HOST_PASSWORD = "yourgmailpw"
-EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
 
 # ==========================
 # Webfaction Server Settings
 # ==========================
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+##EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-#FROM_EMAIL = 'info@yourproject.com'
-#DEFAULT_FROM_EMAIL = FROM_EMAIL
-#SERVER_EMAIL = FROM_EMAIL
+#FROM_EMAIL = "info@example.com"
 #EMAIL_SUBJECT_PREFIX = '[projectname] '
 
 #EMAIL_HOST = 'smtp.webfaction.com'
 #EMAIL_HOST_USER = ""
 #EMAIL_HOST_PASSWORD = ""
-#EMAIL_USE_TLS = True
 #EMAIL_PORT = 25
 
+
+# ===========================
+# More general email settings
+# ===========================
+DEFAULT_FROM_EMAIL = FROM_EMAIL
+SERVER_EMAIL = FROM_EMAIL
+EMAIL_USE_TLS = True
 
 # ==========================
 # Additional installed apps
