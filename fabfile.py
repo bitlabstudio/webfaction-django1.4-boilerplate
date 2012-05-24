@@ -219,7 +219,7 @@ def run_delete_index_files():
 
 
 def run_delete_previous_attempts():
-    run('rm -rf $HOME/webapps/{0}/project'.format(
+    run('rm -rf $HOME/webapps/{0}/myproject'.format(
         fab_settings.DJANGO_APP_NAME))
     run('rm -rf $HOME/Envs/{0}/'.format(fab_settings.VENV_NAME))
     run('rm -rf $HOME/src/{0}/'.format(PROJECT_NAME))
