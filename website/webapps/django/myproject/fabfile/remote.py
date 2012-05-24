@@ -34,7 +34,9 @@ def run_download_media():
 
 def run_dump_db():
     """Dumps the latest database."""
-    run('pg_dump -c -U hopcab_hopcab hopcab_hopcab | gzip -c -9 > $HOME/pg_dump.gz')  # NOQA
+    run(('pg_dump -c -U {0}_{1} {0}_{1} | gzip -c -9 >'
+         ' $HOME/pg_dump.gz').format(
+            fab_settings.ENV_USER, fab_settings.PROJECT_NAME))
 
 
 def run_restart_apache():
