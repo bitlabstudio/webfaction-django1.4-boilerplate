@@ -3,7 +3,7 @@
 ## Use it, if you know what you are doing
 
 This boilerplate has been tested with a fresh Webfaction server with Django 1.4
-on March 31 2012.  It worked without any issues. However, if you use it and
+on May 24 2012.  It worked without any issues. However, if you use it and
 ``fab install_everything`` crashes you will have read the fabric error message
 carefully, think hard about what might have gone wrong, probably fix the
 fabfile (and open an issue here) and try again.  The fab task is setup in such
