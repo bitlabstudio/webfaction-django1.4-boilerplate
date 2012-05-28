@@ -8,10 +8,7 @@ on May 24 2012.  It worked without any issues. However, if you use it and
 carefully, think hard about what might have gone wrong, probably fix the
 fabfile (and open an issue here) and try again.  The fab task is setup in such
 a way that it deletes previous failed attempts on the server so that it can be
-run over and over again. Unfortunately there might be some TODOs left (check
-the TODO section at the bottom of this file), for example if you run the fab
-task again, you will end up having the crontabs twice. I will try to fix this
-ASAP.
+run over and over again.
 
 This project will help you to start new
 [Django](https://www.djangoproject.com/) projects on
