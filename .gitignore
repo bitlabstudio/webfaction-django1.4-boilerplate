@@ -3,6 +3,7 @@
 *.sql
 .ropeproject
 .sass-cache
+coverage/
 db.sqlite
 fab_settings.py
 fabric_settings.py

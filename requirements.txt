@@ -8,8 +8,7 @@ fabric
 flake8
 coverage
 django-coverage
+django-nose
 django-extensions
 factory_boy
-
-# use this if you are on Ubuntu
-# -e git+https://github.com/peterbe/python-gorun.git#egg=gorun
+watchdog

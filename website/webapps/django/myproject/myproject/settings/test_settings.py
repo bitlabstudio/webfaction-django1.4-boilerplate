@@ -3,7 +3,7 @@
 from myproject.settings import *
 
 
-INSTALLED_APPS.append('integration_tests')
+INSTALLED_APPS.append('django_nose')
 
 
 DATABASES = {
@@ -22,3 +22,13 @@ PASSWORD_HASHERS = (
 EMAIL_SUBJECT_PREFIX = '[test] '
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 SOUTH_TESTS_MIGRATE = False
+
+
+TEST_RUNNER = 'myproject.testrunner.NoseCoverageTestRunner'
+COVERAGE_MODULE_EXCLUDES = [
+    'tests$', 'settings$', 'urls$', 'locale$',
+    'migrations', 'fixtures', 'admin$', 'django_extensions',
+]
+COVERAGE_MODULE_EXCLUDES += EXTERNAL_APPS
+COVERAGE_MODULE_EXCLUDES += DJANGO_APPS
+COVERAGE_REPORT_HTML_OUTPUT_DIR = "coverage"

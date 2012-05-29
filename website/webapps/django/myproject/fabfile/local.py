@@ -1,7 +1,6 @@
 """Fabric commands that are run locally."""
 import os
 
-from coverage.misc import CoverageException
 from fabric.api import lcd, local, settings
 from fabric.colors import _wrap_with
 
@@ -9,7 +8,6 @@ from myproject.settings import (
     DATABASES,
     MEDIA_ROOT,
     PROJECT_ROOT,
-    TEST_APPS,
 )
 from fabfile import fab_settings
 
@@ -18,97 +16,10 @@ GREEN_BG = _wrap_with('42')
 RED_BG = _wrap_with('41')
 
 
-def _get_test_apps(all='1'):
-    """Returns a list of apps that should be tested.
-
-    :param all: If '1', the slow ``integration_tests`` app will be included.
-
-    """
-    apps = TEST_APPS
-    if all == '1':
-        apps.append('integration_tests')
-    return apps
-
-
-def _get_test_command(apps=None, options=None, all='1'):
-    """Returns the command that runs all our tests.
-
-    :param apps: A comma separated list of apps that should be tested. If
-      ``None`` we will test all apps.
-    :param options: Extra options that should be passed to the test command.
-    :param all: If '1' we will also run the slow ``integration_tests`` app.
-
-    """
-    if apps is None:
-        apps = ' '.join(_get_test_apps(all=all))
-    else:
-        apps = apps.split(',')
-
-    command = (
-        './manage.py test -v 2 --traceback --failfast'
-        ' --settings=myproject.settings.test_settings %s' % ' '.join(apps)
-    )
-    if options:
-        command += ' {0}'.format(options)
-    return command
-
-
 def check():
     """Checks if the current state can be pushed."""
     flake8()
     test()
-    coverage(0)
-
-
-def coverage(html='1'):
-    """Runs coverage with html output or returns percentage of coverage."""
-    apps = _get_test_apps()
-    command = _get_test_command(apps=','.join(apps))
-    local('coverage run --source=%s %s' % (','.join(apps), command))
-    if html == '1':
-        local('coverage html')
-        local('xdg-open htmlcov/index.html')
-
-
-def _coverage(html=1):
-    """Runs coverage with html output or returns percentage of coverage::
-
-        fab coverage:1      # will create html output (default)
-        fab coverage:0      # will return percentage
-
-    """
-    not_html = not int(html)
-    settings_file = (not_html and 'myproject.settings.coverage_nohtml_settings'
-                     or 'myprojcet.settings.coverage_settings')
-    try:
-        results = local('./manage.py test_coverage --settings={0} {1}'.format(
-             settings_file, ' '.join(TEST_APPS)), capture=not_html)
-    except:
-        raise CoverageException(
-            RED_BG("You have failing tests, run 'fab test' for more details"))
-
-    if not_html:
-        global_percentage = int(results.split("\n")[-3].split()[-1][:-1])
-        files_percents = dict((
-                line.split()[0],  # filename
-                int(line.split()[3][:-1]),  # file percentage
-            ) for line in results.split("-" * 45)[1].split("\n")[1:-1])
-
-        errors = []
-        for name, percentage in files_percents.iteritems():
-            if percentage < 80:
-                errors.append(RED_BG(
-                    'The file {0} is only covered to {1}%'.format(
-                        name, percentage)))
-        if errors:
-            raise CoverageException(
-                "\nThere isn't enought coverage:\n{0}".format(
-                    "\n\t".join(errors)))
-        else:
-            print(GREEN_BG('{0}% of the code is covered'.format(
-                global_percentage)))
-    else:
-        local('{0} coverage_html/index.html'.format(fab_settings.WWW_OPEN))
 
 
 def delete_db():
@@ -224,16 +135,17 @@ def replace_media():
             fab_settings.PROJECT_NAME))
 
 
-def test(apps=','.join(TEST_APPS), options=None, all='1'):
+def test(apps=None, integration=1):
     """Runs manage.py tests::
 
         $ fab test                          # will run all unit tests
         $ fab test:app1                     # will run tests only for app1
+        $ fab test:integration=0            # will exclude integration tests
 
     """
-    if all == '1':
-        apps += ',integration_tests'
-    command = _get_test_command(apps=apps, options=options, all=all)
+    command = "./manage.py test -v 2 --traceback --failfast --settings=myproject.settings.test_settings"  # NOQA
+    if int(integration) == 0:
+        command += " --exclude='integration_tests'"
     with settings(warn_only=True):
         result = local(command, capture=False)
     if result.failed:
