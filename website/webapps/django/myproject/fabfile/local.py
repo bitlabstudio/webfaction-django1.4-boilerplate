@@ -135,7 +135,7 @@ def replace_media():
             fab_settings.PROJECT_NAME))
 
 
-def test(apps=None, integration=1):
+def test(options=None, integration=1):
     """Runs manage.py tests::
 
         $ fab test                          # will run all unit tests
@@ -146,6 +146,8 @@ def test(apps=None, integration=1):
     command = "./manage.py test -v 2 --traceback --failfast --settings=myproject.settings.test_settings"  # NOQA
     if int(integration) == 0:
         command += " --exclude='integration_tests'"
+    if options:
+        command += ' {0}'.format(options)
     with settings(warn_only=True):
         result = local(command, capture=False)
     if result.failed:
