@@ -85,7 +85,7 @@ Next ``cd`` into your desired project folder and clone this repository:
     cd $HOME/Projects
     mkdir yourproject
     cd yourproject
-    git clone git://github.com/bitmazk/webfaction-django-boilerplate.git src
+    git clone git://github.com/bitmazk/webfaction-django1.4-boilerplate.git src
 
 Now you can install some requirements that we need to run fabric. We also added
 some useful tools that will help you to develop and debug your project more
@@ -156,7 +156,7 @@ start creating your templates, you can skp this step:
     cd website/webapps/django/project
     fab rebuild
     ./manage.py runserver
-    
+
 The idea behind this rebuild command is that a new developer should never be forced
 to download the lates database from production in order to get started. Instead
 we should always provide fixtures that setup enough test data so that a new developer
@@ -173,7 +173,7 @@ with username ``admin`` and password ``test123``  and change your password.
 
 The next thing you should do is ssh into your Webfaction server and change
 the secret key in
-``$HOME/webapps/yourproject_django/project/settings/local/local_settings.py``.
+``$HOME/webapps/yourproject_django/myproject/settings/local/local_settings.py``.
 
 If you want to make use of the ``fab rebuild`` command on your server as well,
 you should run:
@@ -181,13 +181,13 @@ you should run:
     workon yourproject
     pip install fabric
     pip install coverage
-    cd $HOME/webapps/yourproject_django/project/
+    cd $HOME/webapps/yourproject_django/myproject/
     fab rebuild
 
 This setup assumes that you are deploying a multilingual project, so you would
 want to create your first translation catalogues now:
 
-    cd $HOME/webapps/yourproject_django/project/
+    cd $HOME/webapps/yourproject_django/myproject/
     workon yourproject
     ./manage.py makemessages -l ch_ZN
 
@@ -202,9 +202,9 @@ crontab:
 In your local project you should change the recepients for the contact form
 app. Usually this should be your customers ``info@yourdomain.com`` address.
 You can find the file at
-``../project/settings/installed_apps/contact_form.py``.
+``../myproject/settings/installed_apps/contact_form.py``.
 
-You should also have a look at ``../project/templates/base.html`` and change
+You should also have a look at ``../myproject/templates/base.html`` and change
 the site name that gets appended to the title. If you are using Google
 Analytics, you should enter your ID, if not, you should delete the analytics
 code snippet.
