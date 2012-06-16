@@ -12,10 +12,15 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/skeleton.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/bootstrap.css">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/bootstrap-responsive.css">
+    <!-- Put your own style overrides here -->
+    <!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css"> -->
     {% block extracss %}{% endblock %}
 
     <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
@@ -40,50 +45,41 @@
 </head>
 
 <body>
-    <div id="wrapper">
-        <header>
-            <div class="container">
-                <div id="logo" class="four columns">
-                    <a href="/">
-                        <div class="logo">
-                            <span>FancyCo Pte. Ltd.</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="navigation eight columns">
-                    <ul>
-                    </ul>
-                </div>
-                <div class="four columns">
-                </div>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="{% url "home" %}">Site Name</a>
+            <div class="nav-collapse collapse">
+                {% include "menu/navigation.html" %}
             </div>
-        </header>
-        <hr />
-        <div id="body" role="main">
-            {% block main %}
-            {% endblock %}
         </div>
-        <hr />
-        <footer>
-            <div class="container">
-                <div class="eight columns">
-                    <p>&copy; 2011 FancyCo Pte. Ltd.</p>
-                </div>
-                <div class="navigation eight columns">
-                    <ul>
-                    </ul>
-                </div>
-            </div>
-        </footer>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.7.0.min.js"><\/script>')</script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.19.min.js"><\/script>')</script>
-    {% block extrajs %}{% endblock %}
-    <!--[if lt IE 7 ]>
-    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-    <![endif]-->
-    </body>
+</div>
+<div class="container">
+    {% block main %}{% endblock %}
+    <hr />
+    <footer class="footer">
+        <div class="row">
+            <div class="span12">
+                <p>Copyright &copy; 2012 <a href="http://www.example.com">example.com</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.7.0.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.19.min.js"><\/script>')</script>
+<script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
+{% block extrajs %}{% endblock %}
+<!--[if lt IE 7 ]>
+<script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+<script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->
+</body>
 </html>

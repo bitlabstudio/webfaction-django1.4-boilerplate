@@ -1,14 +1,9 @@
-# flake8: noqa
 """
 Apps settings
 
 This file contains the settings.INSTALLED_APPS setting, and imports all
 app-related settings, one file per app.
 """
-import os
-import sys
-
-
 INTERNAL_APPS = [
     '_global',
 ]
@@ -16,14 +11,12 @@ INTERNAL_APPS = [
 EXTERNAL_APPS = [
     'mailer',
     'contact_form',
-    'brutebuster_signals',
     'honeypot_signals',
 
     'south',
     'easy_thumbnails',
     'captcha',
     'admin_honeypot',
-    'BruteBuster',
 
     # registration apps
     'registration',
@@ -46,6 +39,6 @@ TEST_APPS = INTERNAL_APPS
 INSTALLED_APPS = DJANGO_APPS + INTERNAL_APPS + EXTERNAL_APPS
 
 # Apps settings
-from captcha import *
-from contact_form import *
-from registration_email import *
+from captcha import *  # NOQA
+from contact_form import *  # NOQA
+from registration_email import *  # NOQA

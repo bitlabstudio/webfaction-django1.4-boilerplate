@@ -23,7 +23,6 @@ easy_thumbnails
 # ==========================
 django-simple-captcha
 django-admin-honeypot
-django-brutebuster
 
 
 # =================
@@ -31,4 +30,3 @@ django-brutebuster
 # =================
 -e git+git://github.com/bitmazk/bitmazk-contact-form.git#egg=contact_form
 -e git://github.com/bitmazk/django-honeypot-signals#egg=honeypot_signals
--e git://github.com/bitmazk/django-brutebuster-signals#egg=brutebuster_signals
