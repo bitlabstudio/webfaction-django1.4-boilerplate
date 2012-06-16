@@ -40,7 +40,7 @@ def dumpdata():
     local('python2.7 ./manage.py dumpdata --indent 4 --natural cms.placeholder > myproject/fixtures/bootstrap_cms.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural cms --exclude cms.placeholder > myproject/fixtures/bootstrap_cms2.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural text > myproject/fixtures/bootstrap_cms_plugins_text.json')  # NOQA
-    local('python2.7 ./manage.py dumpdata --indent 4 --natural cmsplugin_blog > myproject/fixtures/bootstrap_cmsplugin_blog.json')  # NOQA
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural cmsplugin_blog > myprojec/fixtures/bootstrap_cmsplugin_blog.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural tagging > myproject/fixtures/bootstrap_tagging.json')  # NOQA
 
 
@@ -109,6 +109,7 @@ def rebuild_db():
     local('python2.7 manage.py loaddata bootstrap_cms_plugins_text.json')
     local('python2.7 manage.py loaddata bootstrap_cmsplugin_blog.json')
     local('python2.7 manage.py loaddata bootstrap_tagging.json')
+    local('python2.7 manage.py loaddata bootstrap.json')
     local('python2.7 manage.py loaddata bootstrap.json')
 
 

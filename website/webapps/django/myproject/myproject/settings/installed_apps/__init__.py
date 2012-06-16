@@ -5,7 +5,7 @@ This file contains the settings.INSTALLED_APPS setting, and imports all
 app-related settings, one file per app.
 """
 INTERNAL_APPS = [
-    '_global',
+    # add your internal apps here
 ]
 
 EXTERNAL_APPS = [

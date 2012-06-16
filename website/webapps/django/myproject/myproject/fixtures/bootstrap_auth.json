@@ -17,12 +17,12 @@
             "is_active": true, 
             "is_superuser": true, 
             "is_staff": true, 
-            "last_login": "2012-03-15 12:51:15", 
+            "last_login": "2012-06-16T10:45:26.821Z", 
             "groups": [], 
             "user_permissions": [], 
-            "password": "sha1$7caff$f831485ed68794d0d4a4fa96af820a2568937815", 
+            "password": "md5$YOyhlOUamI9B$1ed43c5fe228ad23381c961d1ac8c5d7", 
             "email": "info@example.com", 
-            "date_joined": "2012-01-19 22:15:29"
+            "date_joined": "2012-06-16T10:38:31.770Z"
         }
     }, 
     {
@@ -35,14 +35,16 @@
             "is_active": true, 
             "is_superuser": false, 
             "is_staff": false, 
-            "last_login": "2012-03-15 15:49:28", 
+            "last_login": "2012-06-16T10:38:56Z", 
             "groups": [
-                1
+                [
+                    "translators"
+                ]
             ], 
             "user_permissions": [], 
-            "password": "sha1$7191d$36d8207bfdae73e3f74a78d39908df32c8f787fb", 
+            "password": "md5$Uun4KP680dLv$b134c698d85bb294e5df00f33b6c8770", 
             "email": "", 
-            "date_joined": "2012-03-15 14:26:21"
+            "date_joined": "2012-06-16T10:38:56Z"
         }
     }
 ]

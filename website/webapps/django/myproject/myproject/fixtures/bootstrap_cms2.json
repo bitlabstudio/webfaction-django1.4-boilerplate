@@ -1,0 +1,401 @@
+[
+    {
+        "pk": 1, 
+        "model": "cms.cmsplugin", 
+        "fields": {
+            "rght": 2, 
+            "parent": null, 
+            "language": "en", 
+            "level": 0, 
+            "creation_date": "2012-06-16T10:43:04.971Z", 
+            "lft": 1, 
+            "tree_id": 1, 
+            "position": 0, 
+            "placeholder": 1, 
+            "plugin_type": "TextPlugin"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "cms.cmsplugin", 
+        "fields": {
+            "rght": 2, 
+            "parent": null, 
+            "language": "en", 
+            "level": 0, 
+            "creation_date": "2012-06-16T10:43:04.971Z", 
+            "lft": 1, 
+            "tree_id": 3, 
+            "position": 0, 
+            "placeholder": 3, 
+            "plugin_type": "TextPlugin"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "cms.cmsplugin", 
+        "fields": {
+            "rght": 2, 
+            "parent": null, 
+            "language": "en", 
+            "level": 0, 
+            "creation_date": "2012-06-16T10:45:44.804Z", 
+            "lft": 1, 
+            "tree_id": 4, 
+            "position": 0, 
+            "placeholder": 12, 
+            "plugin_type": "TextPlugin"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "cms.page", 
+        "fields": {
+            "rght": 2, 
+            "navigation_extenders": "", 
+            "site": 1, 
+            "creation_date": "2012-06-16T10:42:53.225Z", 
+            "lft": 1, 
+            "in_navigation": true, 
+            "reverse_id": "home", 
+            "login_required": false, 
+            "created_by": "admin", 
+            "publication_end_date": null, 
+            "moderator_state": 10, 
+            "template": "standard.html", 
+            "tree_id": 1, 
+            "placeholders": [
+                1
+            ], 
+            "changed_date": "2012-06-16T10:43:37.109Z", 
+            "limit_visibility_in_menu": null, 
+            "parent": null, 
+            "publisher_state": 0, 
+            "soft_root": false, 
+            "publication_date": "2012-06-16T10:43:36.916Z", 
+            "publisher_public": 3, 
+            "level": 0, 
+            "changed_by": "admin", 
+            "publisher_is_draft": true, 
+            "published": true
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "cms.page", 
+        "fields": {
+            "rght": 2, 
+            "navigation_extenders": "", 
+            "site": 1, 
+            "creation_date": "2012-06-16T10:43:37.057Z", 
+            "lft": 1, 
+            "in_navigation": true, 
+            "reverse_id": "home", 
+            "login_required": false, 
+            "created_by": "admin", 
+            "publication_end_date": null, 
+            "moderator_state": 10, 
+            "template": "standard.html", 
+            "tree_id": 3, 
+            "placeholders": [
+                3
+            ], 
+            "changed_date": "2012-06-16T10:43:37.057Z", 
+            "limit_visibility_in_menu": null, 
+            "parent": null, 
+            "publisher_state": 1, 
+            "soft_root": false, 
+            "publication_date": "2012-06-16T10:43:36.916Z", 
+            "publisher_public": 1, 
+            "level": 0, 
+            "changed_by": "admin", 
+            "publisher_is_draft": false, 
+            "published": true
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "cms.page", 
+        "fields": {
+            "rght": 2, 
+            "navigation_extenders": "", 
+            "site": 1, 
+            "creation_date": "2012-06-16T10:43:54.901Z", 
+            "lft": 1, 
+            "in_navigation": true, 
+            "reverse_id": "news", 
+            "login_required": false, 
+            "created_by": "admin", 
+            "publication_end_date": null, 
+            "moderator_state": 10, 
+            "template": "standard.html", 
+            "tree_id": 4, 
+            "placeholders": [
+                6
+            ], 
+            "changed_date": "2012-06-16T10:43:54.901Z", 
+            "limit_visibility_in_menu": null, 
+            "parent": null, 
+            "publisher_state": 1, 
+            "soft_root": false, 
+            "publication_date": "2012-06-16T10:43:54.777Z", 
+            "publisher_public": 4, 
+            "level": 0, 
+            "changed_by": "admin", 
+            "publisher_is_draft": false, 
+            "published": true
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "cms.page", 
+        "fields": {
+            "rght": 2, 
+            "navigation_extenders": "", 
+            "site": 1, 
+            "creation_date": "2012-06-16T10:43:43.125Z", 
+            "lft": 1, 
+            "in_navigation": true, 
+            "reverse_id": "news", 
+            "login_required": false, 
+            "created_by": "admin", 
+            "publication_end_date": null, 
+            "moderator_state": 10, 
+            "template": "standard.html", 
+            "tree_id": 6, 
+            "placeholders": [
+                4
+            ], 
+            "changed_date": "2012-06-16T10:43:54.933Z", 
+            "limit_visibility_in_menu": null, 
+            "parent": null, 
+            "publisher_state": 0, 
+            "soft_root": false, 
+            "publication_date": "2012-06-16T10:43:54.777Z", 
+            "publisher_public": 6, 
+            "level": 0, 
+            "changed_by": "admin", 
+            "publisher_is_draft": true, 
+            "published": true
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "ADD", 
+            "message": "", 
+            "created": "2012-06-16T10:45:13.115Z", 
+            "page": 1, 
+            "user": null
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "PUB", 
+            "message": "", 
+            "created": "2012-06-16T10:45:13.116Z", 
+            "page": 1, 
+            "user": null
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "ADD", 
+            "message": "", 
+            "created": "2012-06-16T10:45:13.132Z", 
+            "page": 3, 
+            "user": null
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "ADD", 
+            "message": "", 
+            "created": "2012-06-16T10:43:37.058Z", 
+            "page": 3, 
+            "user": [
+                "admin"
+            ]
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "PUB", 
+            "message": "", 
+            "created": "2012-06-16T10:45:13.133Z", 
+            "page": 3, 
+            "user": null
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "PUB", 
+            "message": "", 
+            "created": "2012-06-16T10:43:37.058Z", 
+            "page": 3, 
+            "user": [
+                "admin"
+            ]
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "ADD", 
+            "message": "", 
+            "created": "2012-06-16T10:43:54.902Z", 
+            "page": 6, 
+            "user": [
+                "admin"
+            ]
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "PUB", 
+            "message": "", 
+            "created": "2012-06-16T10:43:54.902Z", 
+            "page": 6, 
+            "user": [
+                "admin"
+            ]
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "ADD", 
+            "message": "", 
+            "created": "2012-06-16T10:45:13.162Z", 
+            "page": 4, 
+            "user": null
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "cms.pagemoderatorstate", 
+        "fields": {
+            "action": "PUB", 
+            "message": "", 
+            "created": "2012-06-16T10:45:13.163Z", 
+            "page": 4, 
+            "user": null
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "cms.pageuser", 
+        "fields": {
+            "user_permissions": [], 
+            "groups": [
+                [
+                    "translators"
+                ]
+            ], 
+            "created_by": [
+                "admin"
+            ]
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "cms.pageusergroup", 
+        "fields": {
+            "created_by": [
+                "admin"
+            ], 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "cms.title", 
+        "fields": {
+            "menu_title": "", 
+            "redirect": "", 
+            "meta_keywords": "", 
+            "page_title": "", 
+            "language": "en", 
+            "title": "Home", 
+            "has_url_overwrite": false, 
+            "application_urls": "", 
+            "creation_date": "2012-06-16T10:42:53.237Z", 
+            "page": 1, 
+            "path": "", 
+            "meta_description": "", 
+            "slug": "home"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "cms.title", 
+        "fields": {
+            "menu_title": "", 
+            "redirect": "", 
+            "meta_keywords": "", 
+            "page_title": "", 
+            "language": "en", 
+            "title": "Home", 
+            "has_url_overwrite": false, 
+            "application_urls": "", 
+            "creation_date": "2012-06-16T10:42:53.237Z", 
+            "page": 3, 
+            "path": "", 
+            "meta_description": "", 
+            "slug": "home"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "cms.title", 
+        "fields": {
+            "menu_title": "", 
+            "redirect": "", 
+            "meta_keywords": "", 
+            "page_title": "", 
+            "language": "en", 
+            "title": "News", 
+            "has_url_overwrite": false, 
+            "application_urls": "BlogApphook", 
+            "creation_date": "2012-06-16T10:43:43.136Z", 
+            "page": 4, 
+            "path": "news", 
+            "meta_description": "", 
+            "slug": "news"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "cms.title", 
+        "fields": {
+            "menu_title": "", 
+            "redirect": "", 
+            "meta_keywords": "", 
+            "page_title": "", 
+            "language": "en", 
+            "title": "News", 
+            "has_url_overwrite": false, 
+            "application_urls": "BlogApphook", 
+            "creation_date": "2012-06-16T10:43:43.136Z", 
+            "page": 6, 
+            "path": "news", 
+            "meta_description": "", 
+            "slug": "news"
+        }
+    }
+]

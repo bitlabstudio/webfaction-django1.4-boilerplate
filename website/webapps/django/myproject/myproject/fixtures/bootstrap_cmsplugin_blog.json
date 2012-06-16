@@ -1,0 +1,28 @@
+[
+    {
+        "pk": 1, 
+        "model": "cmsplugin_blog.entry", 
+        "fields": {
+            "placeholders": [
+                11, 
+                12
+            ], 
+            "tags": "", 
+            "pub_date": "2012-06-16T10:45:31Z", 
+            "is_published": true
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "cmsplugin_blog.entrytitle", 
+        "fields": {
+            "entry": 1, 
+            "author": [
+                "admin"
+            ], 
+            "slug": "first-blog-post", 
+            "language": "en", 
+            "title": "First blog post"
+        }
+    }
+]
