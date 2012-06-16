@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load i18n %}
+
+{% block main %}
+<header>
+    <h1>{% trans "Registration complete" %}</h1>
+</header>
+<section>
+    <p>{% trans "Thank you for your registration!" %}</p>
+    <p>{% trans "You will receive an email with an activation link shortly." %}</p>
+    <p>{% trans "We send our emails every minute, so please be patient." %}</p>
+    <p>{% trans "If your activation email is not sent within five minutes, something went wrong. In that case please contact us at " %} <a href="mailto:info@project-kairos.com">info@project-kairos.com</a></p>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load i18n %}
+
+{% block main %}
+<header>
+    <h1>{% trans "Login" %}</h1>
+</header>
+<section id="main">
+    <form method="post" action=".">
+        {% csrf_token %}
+        {% include "partials/form_non_field_errors.html" %}
+        <fieldset>
+            {% csrf_token %}
+            {% for field in form %}
+                {% include "partials/form_field.html" %}
+            {% endfor %}
+        </fieldset>
+        <input type="hidden" name="next" value="{{ next }}" />
+        <input type="submit" class="btn btn-primary" value="{% trans "Login" %}">
+    </form>
+    <div>
+        <a href="{% url "auth_password_reset" %}">{% trans "Forgot your password?" %}</a>
+        <a href="{% url "registration_register" %}">{% trans "Register a new account" %}</a>?
+    </div>
+</section>
+{% endblock %}

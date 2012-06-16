@@ -21,6 +21,34 @@ EXTERNAL_APPS = [
     # registration apps
     'registration',
     'registration_email',
+
+    # cms apps
+    'cms',
+    'cms.plugins.text',
+    'cms.plugins.link',
+    'cms.plugins.snippet',
+    'cms.plugins.googlemap',
+    'cms.plugins.inherit',
+    'mptt',
+    'menus',
+    'sekizai',
+    'reversion',
+
+    # filer apps
+    'filer',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_teaser',
+    'cmsplugin_filer_video',
+
+    # cmsplugin_blog dependencies
+    'cmsplugin_blog',
+    'djangocms_utils',
+    'simple_translation',
+    'tagging',
+    'missing',
+
 ]
 
 DJANGO_APPS = [
