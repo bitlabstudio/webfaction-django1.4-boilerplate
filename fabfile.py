@@ -44,7 +44,6 @@ FILE_SHOW_MEMORY = 'show-memory.sh'
 FILE_PGPASS = '.pgpass-{0}'.format(PROJECT_NAME)
 
 
-
 # ****************************************************************************
 # HIGH LEVEL TASKS
 # ****************************************************************************
@@ -116,10 +115,10 @@ def local_create_new_repo():
     with lcd(fab_settings.PROJECT_ROOT):
         local('rm -rf .git')
         local('rm -f .gitmodules')
-        local('rm -rf website/webapps/django/myproject/submodules/Skeleton')
+        local('rm -rf website/webapps/django/myproject/submodules/bootstrap')
         local('git init')
-        local('git submodule add git://github.com/dhgamache/Skeleton.git'
-                ' website/webapps/django/myproject/submodules/Skeleton')
+        local('git submodule add git://github.com/twitter/bootstrap.git'
+                ' website/webapps/django/myproject/submodules/bootstrap')
 
 
 def local_init_django_project():
@@ -154,6 +153,7 @@ def local_init_django_project():
         local('python manage.py syncdb --all --noinput')
         local('python manage.py migrate --fake')
         local('python manage.py loaddata bootstrap_auth.json')
+
 
 def local_initial_commit():
     with lcd(fab_settings.PROJECT_ROOT):
