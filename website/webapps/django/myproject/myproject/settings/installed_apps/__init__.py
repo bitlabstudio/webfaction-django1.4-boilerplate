@@ -32,7 +32,6 @@ EXTERNAL_APPS = [
     'mptt',
     'menus',
     'sekizai',
-    'reversion',
 
     # filer apps
     'filer',
@@ -68,5 +67,7 @@ INSTALLED_APPS = DJANGO_APPS + INTERNAL_APPS + EXTERNAL_APPS
 
 # Apps settings
 from captcha import *  # NOQA
+from cms import *  # NOQA
+from cmsplugin_blog import *  # NOQA
 from contact_form import *  # NOQA
 from registration_email import *  # NOQA

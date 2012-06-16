@@ -3,12 +3,25 @@
 # ========================
 django==1.4
 django-extensions
+django-haystack
 django-missing
 django-rosetta
 -e hg+https://bitbucket.org/ubernostrum/django-registration#egg=registration
 -e git://github.com/bitmazk/django-registration-email.git#egg=registration_email
 -e git+https://github.com/jtauber/django-mailer.git#egg=mailer
 
+# ============================
+# django-cms related packages
+# ============================
+-e git+git://github.com/divio/django-cms.git@develop#egg=django-cms
+-e git+git://github.com/stefanfoulis/django-filer.git@develop#egg=filer
+-e git+git://github.com/fivethreeo/cmsplugin-blog.git@develop#egg=cmsplugin_blog
+cmsplugin-blog-search
+-e git+git://github.com/stefanfoulis/cmsplugin-filer.git@develop#egg=cmsplugin_filer
+django-cms-facetsearch
+django-reversion
+django-tagging
+simple-translation
 
 
 # =========================

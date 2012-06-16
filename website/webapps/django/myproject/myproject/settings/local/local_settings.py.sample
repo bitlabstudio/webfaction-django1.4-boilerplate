@@ -13,6 +13,7 @@ from myproject.settings.installed_apps import INSTALLED_APPS as DEFAULT_INSTALLE
 
 
 DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 SANDBOX = True
 
 

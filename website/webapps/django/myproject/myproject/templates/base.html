@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n cms_tags menu_tags sekizai_tags %}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -22,6 +22,7 @@
     <!-- Put your own style overrides here -->
     <!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css"> -->
     {% block extracss %}{% endblock %}
+    {% render_block "css" %}
 
     <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
     <link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png">
@@ -55,7 +56,7 @@
             </button>
             <a class="brand" href="{% url "home" %}">Site Name</a>
             <div class="nav-collapse collapse">
-                {% include "menu/navigation.html" %}
+                {% show_menu %}
             </div>
         </div>
     </div>
@@ -77,6 +78,7 @@
 <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.19.min.js"><\/script>')</script>
 <script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
 {% block extrajs %}{% endblock %}
+{% render_block "js" %}
 <!--[if lt IE 7 ]>
 <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
 <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
