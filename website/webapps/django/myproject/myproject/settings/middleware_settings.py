@@ -1,6 +1,5 @@
 """Middleware related settings."""
 MIDDLEWARE_CLASSES = [
-    'BruteBuster.middleware.RequestMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
