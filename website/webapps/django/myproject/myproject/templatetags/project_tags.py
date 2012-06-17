@@ -24,9 +24,14 @@ def navactive(request, url, exact=0):
     """
     if exact:
         if url == request.path:
-            return "active"
-        return ""
+            return 'active'
+        return ''
+
+    if url == '/':
+        if request.path == '/':
+            return 'active'
+        return ''
 
     if url in request.path:
-        return "active"
-    return ""
+        return 'active'
+    return ''

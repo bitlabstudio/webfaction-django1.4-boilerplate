@@ -56,7 +56,10 @@
             </button>
             <a class="brand" href="{% page_url "home" %}">Site Name</a>
             <div class="nav-collapse collapse">
-                {% show_menu %}
+                <ul class="nav">
+                    {% show_menu %}
+                    {% include "menu/auth_menu.html" %}
+                </ul>
             </div>
         </div>
     </div>
