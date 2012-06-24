@@ -17,6 +17,10 @@ TEMPLATE_DEBUG = DEBUG
 SANDBOX = True
 
 
+# Set this to True on production
+PREPEND_WWW = False
+
+
 # To initialize your database:
 # =============================
 # > mysql -uroot -p

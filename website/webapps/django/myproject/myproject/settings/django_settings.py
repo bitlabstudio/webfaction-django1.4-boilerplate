@@ -4,7 +4,6 @@
 # =================
 SITE_ID = 1
 ROOT_URLCONF = 'myproject.urls'
-PREPEND_WWW = True
 
 
 # =======================
