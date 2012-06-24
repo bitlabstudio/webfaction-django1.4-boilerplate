@@ -4,6 +4,7 @@
 # =================
 SITE_ID = 1
 ROOT_URLCONF = 'myproject.urls'
+PREPEND_WWW = True
 
 
 # =======================
@@ -27,5 +28,4 @@ USE_I18N = True
 USE_L10N = True
 LANGUAGES = (
     ('en', gettext('English')),
-    ('de', gettext('German')),
 )
