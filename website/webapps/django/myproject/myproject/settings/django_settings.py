@@ -1,9 +1,20 @@
 """Django related settings."""
+from django.contrib import messages
+
+
 # =================
 # General settings
 # =================
 SITE_ID = 1
 ROOT_URLCONF = 'myproject.urls'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-error',
+}
 
 
 # =======================
