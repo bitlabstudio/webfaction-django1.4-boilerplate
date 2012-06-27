@@ -81,6 +81,12 @@
 <script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
 {% block extrajs %}{% endblock %}
 {% render_block "js" %}
+<script>
+$(document).ready(function() {
+    $('.popOver').popover();
+});
+</script>
+
 <!--[if lt IE 7 ]>
 <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
 <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
