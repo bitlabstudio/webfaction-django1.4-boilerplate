@@ -79,6 +79,12 @@ def import_db():
             db_password, db_name))
 
 
+def lessc():
+    """Compiles all less files."""
+    local('lessc myproject/static/css/bootstrap.less myproject/static/css/bootstrap.css')  # NOQA
+    local('lessc myproject/static/css/responsive.less myproject/static/css/bootstrap-responsive.css')  # NOQA
+
+
 def push():
     """git push after checking tests and syntax"""
     check()

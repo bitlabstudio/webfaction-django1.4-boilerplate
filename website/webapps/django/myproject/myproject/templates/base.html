@@ -12,15 +12,14 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/bootstrap-responsive.css">
-    <!-- Put your own style overrides here -->
-    <!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css"> -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/libs/ui-lightness/jquery-ui-1.8.21.custom.css">
     {% block extracss %}{% endblock %}
     {% render_block "css" %}
 
@@ -77,8 +76,8 @@
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.7.0.min.js"><\/script>')</script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.19.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-ui-1.8.21.min.js"><\/script>')</script>
 <script src="{{ STATIC_URL }}js/libs/bootstrap.min.js"></script>
 {% block extrajs %}{% endblock %}
 {% render_block "js" %}

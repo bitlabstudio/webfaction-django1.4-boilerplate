@@ -1,14 +1,24 @@
 # These requirements are needed in order to run the initial fabric script.
 # We also add very useful packages for effective development here.
-# Please note that python-gorun uses inotify which is not available on a mac.
 
+# =============
+# For debugging
+# =============
 ipython
 ipdb
+
+# ===================
+# For task automation
+# ===================
 fabric
+watchdog
+
+# =============================
+# For testing and code checking
+# =============================
+django-extensions
 flake8
 coverage
 django-coverage
 django-nose
-django-extensions
 factory_boy
-watchdog

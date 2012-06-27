@@ -51,9 +51,9 @@ MANAGERS = ADMINS
 EMAIL_BACKEND = 'mailer.backend.DbBackend'
 
 
-# ===============================
-# Loca Development Email Settings
-# ===============================
+# ================================
+# Local Development Email Settings
+# ================================
 MAILER_EMAIL_BACKEND = 'myproject.test_email_backend.EmailBackend'
 TEST_EMAIL_BACKEND_RECEPIENTS = ADMINS
 

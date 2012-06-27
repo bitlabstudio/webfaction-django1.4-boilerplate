@@ -1,6 +1,0 @@
-DIRECTORIES = (
-    ('.', './manage.py test --failfast --settings=myproject.settings.test_settings'
-        #' appname'
-        '',
-    ),
-)
