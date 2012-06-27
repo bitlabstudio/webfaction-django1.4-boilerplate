@@ -133,10 +133,6 @@ def local_init_django_project():
         local('cp fabfile/fab_settings.py.sample'
               ' fabfile/fab_settings.py')
 
-        # prepare gorun_settings.py
-        local('cp myproject/settings/local/gorun_settings.py.sample'
-              ' gorun_settings.py')
-
         # prepare wsgi.py
         local("sed -i -r -e 's/ENV_USER/{0}/g'"
               " myproject/wsgi.py".format(fab_settings.ENV_USER))
