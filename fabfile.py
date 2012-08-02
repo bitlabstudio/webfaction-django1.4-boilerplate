@@ -141,10 +141,6 @@ def local_init_django_project():
         local("sed -i -r -e 's/DJANGO_APP_NAME/{0}/g'"
               " myproject/wsgi.py".format(fab_settings.DJANGO_APP_NAME))
 
-        # prepare urls.py
-        local("sed -i -r -e 's/XXXX/{0}/g' myproject/urls.py".format(
-            fab_settings.ADMIN_URL))
-
         # initialize local Django project
         local('python manage.py syncdb --all --noinput')
         local('python manage.py migrate --fake')

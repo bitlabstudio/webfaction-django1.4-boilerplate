@@ -168,8 +168,10 @@ the django-cms welcome screen. First you should login at ``/admin-XXXX/``
 with username ``admin`` and password ``test123``  and change your password.
 
 The next thing you should do is ssh into your Webfaction server and change
-the secret key in
-``$HOME/webapps/yourproject_django/myproject/settings/local/local_settings.py``.
+the secret key in ``$HOME/webapps/yourproject_django/myproject/settings/local/local_settings.py``.
+
+You should also change the ``ADMIN_URL`` setting in your ``local_settings.py``
+and set it to a random number.
 
 If you want to make use of the ``fab rebuild`` command on your server as well,
 you should run:
