@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}{% endblock %} | Site Name</title>
-    <meta name="description" content="{% block description %}{% endblock %}">
+    <title>{% block title %}{% page_attribute "page_title" %}{% endblock %} | Site Name</title>
+    <meta name="description" content="{% block description %}{% page_attribute meta_description %}{% endblock %}">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -48,7 +48,7 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
