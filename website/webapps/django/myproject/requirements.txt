@@ -30,7 +30,7 @@ simple-translation==0.8.6
 # =========================
 south==0.7.5
 easy_thumbnails==1.0.3
-PIL==1.1.6
+PIL==1.1.7
 psycopg2==2.4.5
 
 
