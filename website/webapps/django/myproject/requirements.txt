@@ -1,45 +1,70 @@
 # ========================
 # Django related packages
 # ========================
-django==1.4
-django-extensions
-django-haystack
-django-missing
-django-rosetta
--e hg+https://bitbucket.org/ubernostrum/django-registration#egg=registration
--e git://github.com/bitmazk/django-registration-email.git#egg=registration_email
--e git+https://github.com/jtauber/django-mailer.git#egg=mailer
+django==1.4.1
+django-libs==0.5
+django-extensions==0.9
+django-haystack==1.2.7
+django-missing==0.1.5
+django-rosetta==0.6.8
+-e hg+http://bitbucket.org/ubernostrum/django-registration@1086c6ad3a4743a0bc7b6536e0623b17c9c1af93#egg=registration
+-e git+git://github.com/bitmazk/django-registration-email.git@e280c76b01b7d30e5ed46709d437e6615acbe3a3#egg=registration_email
+-e git+git://github.com/jtauber/django-mailer.git@af91e3b3556ea1a0ae9cb2c5b6520bacdab6a9fa#egg=mailer
 
 # ============================
 # django-cms related packages
 # ============================
--e git+git://github.com/divio/django-cms.git@develop#egg=django-cms
--e git+git://github.com/stefanfoulis/django-filer.git@develop#egg=filer
--e git+git://github.com/fivethreeo/cmsplugin-blog.git@develop#egg=cmsplugin_blog
-cmsplugin-blog-search
--e git+git://github.com/stefanfoulis/cmsplugin-filer.git@develop#egg=cmsplugin_filer
-django-cms-facetsearch
-django-reversion
-django-tagging
-simple-translation
+-e git+git://github.com/divio/django-cms.git@46506b73b3935b6bb25a589f99d67bcc43a42af9#egg=django-cms
+-e git+git://github.com/stefanfoulis/django-filer.git@ac71bcdc47ac83ddf2ea3cf0e9ff1e1e9f3df1b2#egg=filer
+-e git+git://github.com/fivethreeo/cmsplugin-blog.git@1660d9bf816895360fb879338c5b75cb338c6fd4#egg=cmsplugin_blog
+cmsplugin-blog-search==0.9
+-e git+git://github.com/mbrochh/cmsplugin-filer.git@1fc3577525e712aecbeb0241defb78acd103143f#egg=cmsplugin_filer
+django-cms-facetsearch==0.9.2
+django-reversion==1.6.2
+django-tagging==0.3.1
+simple-translation==0.8.6
 
 
 # =========================
 # Important other packages
 # =========================
-south
-easy_thumbnails
+south==0.7.5
+easy_thumbnails==1.0.3
+PIL==1.1.6
+psycopg2==2.4.5
 
 
 # ==========================
 # Security related packages
 # ==========================
-django-simple-captcha
-django-admin-honeypot
+django-simple-captcha==0.3.4
+django-admin-honeypot==0.2.3
 
 
 # =================
 # Bitmazk packages
 # =================
--e git+git://github.com/bitmazk/bitmazk-contact-form.git#egg=contact_form
--e git://github.com/bitmazk/django-honeypot-signals#egg=honeypot_signals
+-e git+git://github.com/bitmazk/bitmazk-contact-form.git@ceb63313336c4dbe034e7805fcf1d746e9a784b4#egg=contact_form
+-e git+git://github.com/bitmazk/django-honeypot-signals.git@5ca73d5775e4d76665572f1bcbf24b3e1d585b3b#egg=honeypot_signals
+
+# =============
+# For debugging
+# =============
+ipython==0.13
+ipdb==0.7
+
+# ===================
+# For task automation
+# ===================
+fabric==1.4.3
+# watchdog
+
+# =============================
+# For testing and code checking
+# =============================
+django-extensions==0.9
+flake8==1.4
+coverage==3.5.2
+django-coverage==1.2.2
+django-nose==1.1
+factory_boy==1.1.5
