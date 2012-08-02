@@ -1,5 +1,9 @@
 """Django related settings."""
+import os
+
 from django.contrib import messages
+
+from myproject.settings.base_settings import PROJECT_ROOT
 
 
 # =================
@@ -15,6 +19,10 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-error',
 }
+
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'myproject/fixtures'),
+)
 
 
 # =======================
