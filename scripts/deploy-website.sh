@@ -6,7 +6,7 @@ source $HOME/Envs/$VENV_NAME/bin/activate
 cd $HOME/src/$PROJECTNAME
 git pull
 cd website/webapps/django/myproject
-pip install -r requirements.txt
+pip install -r requirements.txt --upgrade
 rsync -avz --stats --delete --exclude 'local_settings.py' ~/src/$PROJECTNAME/website/webapps/django/myproject ~/webapps/$DJANGO_APP_NAME/
 cd ~/webapps/$DJANGO_APP_NAME/myproject
 if [ $1 ]; then
