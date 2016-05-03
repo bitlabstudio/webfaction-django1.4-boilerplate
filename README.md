@@ -1,3 +1,8 @@
+Important
+=========
+
+This app has been discontinued and is no longer maintained.
+
 # Webfaction Django 1.4 Boilerplate
 
 ## Use it, if you know what you are doing
