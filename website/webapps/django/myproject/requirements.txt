@@ -50,7 +50,7 @@ django-admin-honeypot==0.2.3
 # =============
 # For debugging
 # =============
-ipython==0.13
+ipython==7.16.3
 ipdb==0.7
 
 # ===================
